@@ -1,0 +1,69 @@
+package com.example.OutingAura.controller;
+
+import com.example.OutingAura.model.DecorationPackage;
+import com.example.OutingAura.repository.DecorationPackageRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
+
+import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.UUID;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+@WebMvcTest(DecorationPackageController.class)
+public class DecorationPackageControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private DecorationPackageRepository decorationPackageRepository;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Test
+    public void testAddPackage_Success() throws Exception {
+        // Prepare data
+        MockMultipartFile imageFile = new MockMultipartFile(
+                "image", "decoration.jpg", MediaType.IMAGE_JPEG_VALUE, "fake image content".getBytes());
+
+        DecorationPackage savedPackage = new DecorationPackage();
+        savedPackage.setId(UUID.randomUUID().toString());
+        savedPackage.setName("Elegant Decor");
+        savedPackage.setDescription("Perfect for weddings");
+        savedPackage.setPrice(15000);
+        savedPackage.setCategory("Wedding");
+        savedPackage.setImageUrl("/images/decoration.jpg");
+
+        // Mock repository
+        Mockito.when(decorationPackageRepository.save(any(DecorationPackage.class)))
+                .thenReturn(savedPackage);
+
+        // Perform multipart/form-data POST request
+        mockMvc.perform(multipart("/api/decopackages")
+                        .file(imageFile)
+                        .param("name", "Elegant Decor")
+                        .param("description", "Perfect for weddings")
+                        .param("price", "15000")
+                        .param("category", "Wedding")
+                        .contentType(MediaType.MULTIPART_FORM_DATA))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.name").value("Elegant Decor"))
+                .andExpect(jsonPath("$.description").value("Perfect for weddings"))
+                .andExpect(jsonPath("$.price").value(15000))
+                .andExpect(jsonPath("$.category").value("Wedding"))
+                .andExpect(jsonPath("$.imageUrl").value("/images/decoration.jpg"));
+    }
+}

@@ -1,0 +1,281 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('../assets/main.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 90.6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 20px;
+  text-align: center;
+  color: white;
+}
+
+.brand-name {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  color: black;
+  font-weight: bolder;
+}
+
+.deals {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.book-now {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.book-now:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+/* Section Styles */
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 60px 80px;
+}
+
+.section-box {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-box:first-child {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.underline-style {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-style::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 60%;
+  height: 8px;
+  background: linear-gradient(to right, #cc00cc, #9900cc);
+  border-radius: 4px;
+}
+
+.section-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Image Grid */
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.images-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Layout: Text Left, Image Right */
+.section-right-align,
+.section-left-image {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.section-right-align .text-column,
+.section-left-image .text-column,
+.section-right-align .image-column,
+.section-left-image .image-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Side-by-side image sets */
+.section-right-align .image-column img,
+.section-left-image .image-column img {
+  width: 48%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Celebrations Specific: image first, text second */
+.section-left-image .image-column {
+  order: 1;
+   
+}
+
+.section-left-image .text-column {
+  order: 2;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  .brand-name {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .book-now {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-content {
+    padding: 40px 20px;
+  }
+
+  .images-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-right-align,
+  .section-left-image {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-right-align .image-column,
+  .section-left-image .image-column {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .section-right-align .image-column img,
+  .section-left-image .image-column img {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .brand-name {
+    font-size: 2rem;
+  }
+
+  .book-now {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 85vh;
+  }
+
+  .hero-content {
+    padding: 0 10px;
+  }
+
+  .brand-name {
+    font-size: 1.8rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .deals {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-text {
+    font-size: 1rem;
+  }
+
+  .section-right-align .image-column img,
+  .section-left-image .image-column img {
+    width: 100%;
+  }
+}
+
+
+/* Common image column styling */
+.image-column {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Inside image columns - maintain fixed height and responsive width */
+.image-column img {
+  width: 48%;
+  height: 250px; /* You can adjust this value as needed */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive tweak for smaller devices */
+@media (max-width: 768px) {
+  .image-column img {
+    width: 100%;
+    height: 200px; /* Slightly shorter for mobile */
+  }
+}
+

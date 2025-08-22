@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: white;
+    box-shadow: 0 0 50px rgba(36, 37, 36, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.contact-container {
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-left {
+    width: 60%;
+}
+
+.contact-right {
+    width: 35%;
+}
+
+.contact-left {
+    flex: 1;
+    padding: 40px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.get-in-touch {
+    color: #c44bc2;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.company-name {
+    color: #c44bc2;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.description {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    margin-top: 30px;
+}
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+.info-title {
+    color: #180304;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.info-box {
+    background-color: white;
+    border-radius: 30px;
+    padding: 15px 20px;
+    color: rgb(20, 3, 11);
+    border: 1px solid #c4bbbb;
+}
+
+.address-box {
+    padding: 15px 20px;
+    max-width: 550px;
+}
+
+.contact-right {
+    flex: 1;
+    padding: 40px;
+    background-color: #ebe4e4;
+}
+
+.form-header {
+    color: #3b0a3b;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.feedback-title {
+    color: #c44bc2;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.privacy-notice {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-input {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: #c44bc2;
+}
+
+.half-width {
+    width: calc(50% - 7.5px);
+}
+
+.full-width {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.message-area {
+    height: 200px;
+    resize: none;
+    font-family: inherit;
+}
+
+.submit-button {
+    background-color: #c44bc2;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    float: right;
+}
+
+.submit-button:hover {
+    background-color: #a53aa1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar.active .nav-links {
+    display: flex;
+}

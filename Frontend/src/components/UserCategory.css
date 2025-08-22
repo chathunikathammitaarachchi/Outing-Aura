@@ -1,0 +1,161 @@
+/* Updated UserCategory.css */
+
+/* Base styles for the body/background */
+.body {
+  background-image: url('../assets/user images/6.jpg');
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Creates parallax effect */
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  padding: 0;
+  margin-right: 0;
+ 
+}
+
+/* Container for the form */
+.category-form-container {
+  max-width: 600px;
+  width: 100%; /* Responsive width */
+  margin: 250px auto 2rem; /* Top margin for navbar space */
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95); /* Slightly transparent */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+  
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .category-form-container {
+    margin-top: 200px; /* Reduced space for mobile */
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .body {
+    background-attachment: scroll; /* Better for mobile performance */
+  }
+  
+  .category-form-container {
+    margin-top: 150px;
+    padding: 1rem;
+    width: 95%;
+  }
+  
+  .category-options {
+    gap: 0.75rem;
+  }
+  
+  .category-option {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* Existing styles (keep these) */
+.category-form-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.category-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.category-option {
+  position: relative;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.category-option:hover {
+  border-color: #3498db;
+  background-color: #f8fafb;
+}
+
+.category-option.selected {
+  border-color: #3498db;
+  background-color: #e8f4fc;
+}
+
+.category-option.clicked {
+  animation: clickEffect 0.3s ease;
+}
+
+@keyframes clickEffect {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+.category-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.category-name {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #2980b9;
+}
+
+.submit-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .category-options {
+    grid-template-columns: 1fr;
+  }
+  @media screen {
+    .category-form-container{
+      margin: 0 auto; /* Center the form on smaller screens */
+      padding: 1rem; /* Adjust padding for smaller screens */
+    }
+    
+  }
+}

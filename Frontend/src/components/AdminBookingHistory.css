@@ -1,0 +1,86 @@
+.admin-booking-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-heading {
+  text-align: center;
+  color: #3c3c3c;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.booking-card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+.booking-card:hover {
+  transform: translateY(-3px);
+}
+
+.booking-card p {
+  margin: 8px 0;
+  color: #444;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.status-badge.accepted {
+  background-color: #4CAF50;
+}
+
+.status-badge.rejected {
+  background-color: #f44336;
+}
+
+.status-badge.pending {
+  background-color: #ff9800;
+}
+
+.button-group {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.accept-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.accept-btn:hover {
+  background-color: #45a049;
+}
+
+.reject-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.reject-btn:hover {
+  background-color: #e53935;
+}
